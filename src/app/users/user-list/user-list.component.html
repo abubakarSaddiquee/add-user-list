@@ -1,0 +1,32 @@
+<div class="container mt-5">
+<h3 style="text-align: center;">User List</h3>
+
+<div class="mb-5 mt-5 form-group has-search">
+    <span class="fa fa-search form-control-feedback"></span>
+    <input type="text" class="form-control" placeholder="Search" [(ngModel)]="term">
+
+  </div>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">age</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let users of getUserData | filter:term, let i = index " >
+        <th scope="row">{{ i + 1}}</th>
+        <td>{{users.name}}</td>
+        <td>{{users.email}}</td>
+        <td>{{users.age}}</td>
+
+      </tr>
+
+    </tbody>
+  </table>
+  <button type="submit" class="btn btn-primary" routerLink="/add-user">Add new User</button>
+</div>
